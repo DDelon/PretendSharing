@@ -58,7 +58,8 @@ public class QQActivity extends Activity {
                 //else
                 //    setResult(RESULT_OK,i);
                 Intent launchBackIntent = new Intent();
-                String pkgName = iGet.getStringExtra("pkg_name");
+                //String pkgName = iGet.getStringExtra("pkg_name"); //好像有应用获取不到这个值，换成下面这个
+                String pkgName = getCallingActivity().getPackageName();
                 launchBackIntent.setData(Uri.parse("tencent222222://tauth.qq.com/?#action=shareToQQ&result=complete&response={\"ret\":0}"));
                 launchBackIntent.setFlags(272629760);
                 launchBackIntent.putExtra("fling_action_key",2);
